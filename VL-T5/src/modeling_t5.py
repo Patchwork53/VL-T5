@@ -268,6 +268,23 @@ class JointEncoder(T5Stack):
                 # if output_hidden_states:
                 #     all_hidden_states = all_hidden_states + (hidden_states,)
 
+                """
+                    def forward(
+                            self,
+                            hidden_states,
+                            attention_mask=None,
+                            position_bias=None,
+                            encoder_hidden_states=None,
+                            encoder_attention_mask=None,
+                            encoder_decoder_position_bias=None,
+                            layer_head_mask=None,
+                            cross_attn_layer_head_mask=None,
+                            past_key_value=None,
+                            use_cache=False,
+                            output_attentions=False,
+                            return_dict=True,
+                        )
+                """
                 layer_outputs = layer_module(
                     hidden_states,
                     attention_mask=extended_attention_mask,
@@ -275,7 +292,7 @@ class JointEncoder(T5Stack):
                     encoder_hidden_states=None,
                     encoder_attention_mask=None,
                     encoder_decoder_position_bias=None,
-                    head_mask=head_mask[i],
+                    layer_head_mask=head_mask[i],
                     past_key_value=past_key_value,
                     use_cache=use_cache,
                     output_attentions=output_attentions,
