@@ -1,11 +1,8 @@
-transformers==4.2.1
+transformers
 sentencepiece
 h5py
 wandb
 tqdm
-numpy
-pandas
-matplotlib
 pyyaml
 sacrebleu
 git+https://github.com/j-min/language-evaluation@master
